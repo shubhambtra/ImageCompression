@@ -22,7 +22,7 @@ namespace ImageCompression.Controllers
         [HttpPost]
         public ActionResult Compression(HttpPostedFileBase file)
         {
-            using (var mStream = new MemoryStream())
+            using (var mS = new MemoryStream())
             {
                 var targetImagepath = Server.MapPath("/Content/Compressed/" + Path.GetFileNameWithoutExtension(file.FileName) + "_Compressed" + DateTime.Now.ToString("ddMMyyyyhhmmss") + Path.GetExtension(file.FileName));
                 byte[] image = new byte[file.ContentLength];
